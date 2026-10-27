@@ -3,7 +3,9 @@
 // a hexagon sun over the mountains. The tape knobs each show: WOW makes the reels lurch, the tape bend
 // and its copy wander off, FLUTTER makes it shiver, REVERSE runs the reels backwards, DEGRADE dims
 // the sun, scratches the tape and brings the dust. A note flashes the sun and sends out two rings.
-// Two dots in the label: the page (encoder 1 shows WAVE, or WOW).
+// Two dots in the label: the page (encoder 1 shows WAVE, or WOW). A press switches pages
+// (definition.json "press": "page"): the header shows one, the row under it the other in grey,
+// sliding down from the header on a switch.
 #include "display.h"
 #include "tables.h"
 
@@ -17,6 +19,38 @@ enum { N_WAVE, N_CHORUS, N_SUN, N_PACK_L, N_SLOT_L, N_PACK_R = 7, N_SLOT_R, N_PA
 enum { C_BLACK, C_DARK, C_GREY, C_WHITE, C_ORANGE, C_BLUE, C_YELLOW, C_DEEP, C_BRIGHT, C_MID, C_LIGHT, C_SUN,
        C_EMBER, C_NAVY };
 const i32 RL = 88, RR = 392, RY = 120, SUN_X = 240, SUN_Y = 102, TAPE_Y = 124;
+/* the pages' parameter slots on positions 0..3, and each slot's title as the stock header writes it */
+const u32 PAGES[2][4] = {{0, 1, 2, 3}, {4, 5, 6, 7}};
+const char* const TITLES[8] = {"wave", "shape", "sub", "chorus", "wow", "flutter", "reverse", "degrade"};
+/* header (stock) and page row positions, Q10 px: titles at each column's left, values 65 px in; the row's
+ * values rest at 13 px and start a slide at the header's 20 px */
+const i32 COLUMN = 120 * unit, TITLE_X = 5 * unit, VALUE_X = 65 * unit;
+const i32 HEADER_TITLE_Y = 10 * unit, HEADER_VALUE_Y = 17818, ROW_Y = 33 * unit, HEADER_VALUE_SCALE = 1575;
+/* a switch eases out exponentially: the distance left halves every 21 ms, within 1% after 0.15 s */
+const i32 SETTLE = 154;                                                      /* 0.15 s, Q10 */
+const u32 OCTAVES_PER_Q10 = 1496;                                            /* Q15 halvings per Q10 s */
+const u32 HALVING_Q16[] = {65536, 60097, 55109, 50535, 46341, 42495, 38968, 35734, 32768};
+inline u32 halving_q16(u32 octaves_q15)
+{
+    const u32 whole = octaves_q15 >> 15, eighth = (octaves_q15 >> 12) & 7, fraction = octaves_q15 & 4095;
+    if (whole >= 16) return 0;
+    const u32 a = HALVING_Q16[eighth], b = HALVING_Q16[eighth + 1];
+    return (a - (((a - b) * fraction) >> 12)) >> whole;
+}
+/* between the row and the header: `left` (Q16) of the way back up */
+inline i32 between(i32 row, i32 header, u32 left) { return row + ((header - row) * static_cast<i32>(left >> 6) >> 10); }
+/* a value as the header and the row show it, 0..100; the parameter keeps its full precision */
+void amount(char* out, u32 capacity, i32 value)
+{
+    const u32 p = value < 0 ? 0 : ((static_cast<u32>(value) >> 10) * 100 + (1u << 20)) >> 21;
+    char digits[4];
+    u32 n = 0;
+    if (p >= 100) digits[n++] = '1';
+    if (p >= 10) digits[n++] = static_cast<char>('0' + p / 10 % 10);
+    digits[n++] = static_cast<char>('0' + p % 10);
+    digits[n] = 0;
+    copy(out, capacity, digits);
+}
 /* the three stars that always shine */
 const i32 STAR_X[3] = {164, 318, 286}, STAR_Y[3] = {78, 70, 92};
 
@@ -50,8 +84,10 @@ i32 wave_at(i32 u, i32 wave, i32 width, i32 sub)
 
 struct Motion { i32 wow, flutter, rev, deg; u32 t; u32 seed; };
 
-/* the tape, reel to reel: 32 points out (the left reel, 30 on three cycles, the right reel), the same
- * back. lift: the whole line's offset (Q10 px); shift: its phase along the tape */
+/* the tape, reel to reel: a thin ribbon, 32 points out along its top edge (the left reel, 30 on three
+ * cycles, the right reel) and back along its bottom edge. An outline traced out and back over itself
+ * has no area, and the device draws streaks from its ends; every point here is distinct.
+ * lift: the whole line's offset (Q10 px); shift: its phase along the tape */
 void tape(Frame::path_type& path, i32 wave, i32 width, i32 sub, const Motion& m, i32 lift, i32 shift, u32 salt)
 {
     i32 us[30];
@@ -65,6 +101,7 @@ void tape(Frame::path_type& path, i32 wave, i32 width, i32 sub, const Motion& m,
             while (j >= 0 && v[j] > x) { v[j + 1] = v[j]; j--; }
             v[j + 1] = x;
         }
+        for (k = 1; k < 10; k++) if (v[k] <= v[k - 1]) v[k] = v[k - 1] + 1;   /* each its own x */
         for (k = 0; k < 10; k++) us[n++] = c * 1024 + v[k];
     }
     Point fwd[32];
@@ -76,12 +113,15 @@ void tape(Frame::path_type& path, i32 wave, i32 width, i32 sub, const Motion& m,
         y += sin10(m.t * 5u + along) * m.wow / 1024 * 5;                             /* WOW: a slow bend */
         y += sin10(m.t * 90u + along * 5u + salt) * m.flutter / 1024 * 2;            /* FLUTTER: a shiver */
         if (m.deg > 250) y += static_cast<i32>(hash(m.seed + salt + static_cast<u32>(i)) % 2048u - 1024) * (m.deg - 250) / 1024 * 3;
-        fwd[i + 1].x = -48 * unit + (us[i] * 96 / 3072) * unit;
+        fwd[i + 1].x = -48 * unit + us[i] * 32;                                       /* 96 px over 3072, Q10 */
         fwd[i + 1].y = clamp(y, -60 * unit, 60 * unit);
     }
     fwd[31].x = 64 * unit; fwd[31].y = -2 * unit;
-    for (int i = 0; i < 32; i++) path.points[i] = fwd[i];
-    for (int i = 0; i < 32; i++) path.points[32 + i] = fwd[31 - i];
+    const i32 half = unit / 4;                        /* half the ribbon: 0.5 px across at the node's scale 2 */
+    for (int i = 0; i < 32; i++) {
+        path.points[i].x = fwd[i].x; path.points[i].y = fwd[i].y - half;
+        path.points[63 - i].x = fwd[i].x; path.points[63 - i].y = fwd[i].y + half;
+    }
 }
 
 void reel(Frame& f, u32 pack, u32 slot, i32 cx, u32 angle, i32 wound)
@@ -100,6 +140,9 @@ inline void display_reset(DisplayState& state)
     state.flash = 0;
     state.key = 1;
     state.seed = 1;
+    state.page = 0;
+    state.track = 0;
+    state.since = SETTLE;
 }
 
 void display(DisplayState& state, const opxy::draw::Input& input, Frame& frame)
@@ -184,6 +227,26 @@ void display(DisplayState& state, const opxy::draw::Input& input, Frame& frame)
         const bool second = input.shown[0] == 4;
         place(frame, N_PAGE, 232 * unit, 194 * unit, unit, second ? C_GREY : C_ORANGE, fill_and_stroke);
         place(frame, N_PAGE + 1, 248 * unit, 194 * unit, unit, second ? C_ORANGE : C_GREY, fill_and_stroke);
+        /* the header writes this page; the row under it the other, sliding down from the header on a switch */
+        const u32 page = second ? 1 : 0;
+        if (state.page && state.track == input.track && state.page != page + 1 && !input.reduced_motion)
+            state.since = 0;
+        else if (state.since < SETTLE)
+            state.since += clamp(input.elapsed, 0, SETTLE);
+        if (input.reduced_motion || state.since > SETTLE) state.since = SETTLE;
+        state.page = page + 1;
+        state.track = input.track;
+        const u32 left = state.since >= SETTLE ? 0 : halving_q16(static_cast<u32>(state.since) * OCTAVES_PER_Q10);
+        for (u32 i = 0; i < 4; ++i) {
+            amount(frame.header[i], sizeof(frame.header[i]), input.slots[input.shown[i]]);
+            const u32 slot = PAGES[1 - page][i];
+            const i32 x = static_cast<i32>(i) * COLUMN;
+            text(frame, i, x + TITLE_X, between(ROW_Y, HEADER_TITLE_Y, left), unit, TITLES[slot]);
+            char value[header_capacity];
+            amount(value, sizeof(value), input.slots[slot]);
+            text(frame, 4 + i, x + VALUE_X, between(ROW_Y, HEADER_VALUE_Y, left),
+                 between(unit, HEADER_VALUE_SCALE, left), value);
+        }
     }
 }
 }
