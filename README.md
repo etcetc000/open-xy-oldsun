@@ -1,11 +1,14 @@
 # Oldsun
 
 A Juno-inspired synth played through a worn cassette, for the OP-XY with [open-xy](https://github.com/etcetc000/open-xy).
+
+Oldsun is by sandison; see [PROVENANCE.md](PROVENANCE.md). The player's guide is [GUIDE.md](GUIDE.md).
+
 Inspired by the sound of Boards of Canada: a warm DCO and its chorus, then a tape that warps, shivers, plays backwards and falls apart.
 
 The OP-XY's own filter, envelopes, LFO and effects follow the engine, so it plays like any stock instrument.
 
-![The screen](../oldsun-screen.png)
+![The screen](oldsun-screen.png)
 
 Version 0.20.
 
@@ -44,15 +47,15 @@ turns all four to the other page together, and the OP-XY's LFO can reach all eig
 
 Oldsun is a standard open-xy machine.
 
-1. Get [open-xy](https://github.com/etcetc000/open-xy) (staging branch, SDK 1.3 or later). Keep the `oldsun` folder anywhere outside it.
+1. Get [open-xy](https://github.com/etcetc000/open-xy) (staging branch, SDK 1.3 or later). Clone this repository beside it, as `open-xy-oldsun`.
 2. Preview it in the browser, or test it (from the open-xy folder):
    ```sh
-   python sdk.py preview --machine <path>/oldsun --out local/oldsun-preview
-   python sdk.py test --machine <path>/oldsun
+   python sdk.py preview --machine ../open-xy-oldsun --out local/oldsun-preview
+   python sdk.py test --machine ../open-xy-oldsun
    ```
-3. Build: `python sdk.py build --machine <path>/oldsun --stock-os <your stock>/os.ldr --out <builds>/oldsun-001`
+3. Build: `python sdk.py build --machine ../open-xy-oldsun --stock-os <your stock>/os.ldr --out <builds>/oldsun-001`
 4. Install following open-xy's [native build guide](https://github.com/etcetc000/open-xy/blob/staging/docs/build.md), using the OS and menu file from your own OP-XY.
-5. Command-line builds do not add the init preset, and without it the engine list crashes (`patch.cpp ... is_preset`). Copy `../init-preset/default.json` (included) to `content/presets/oldsun/default.json` on the device; the browser builder writes it for you. It matches the defaults in `definition.json`.
+5. Command-line builds do not add the init preset, and without it the engine list crashes (`patch.cpp ... is_preset`). Copy `init-preset/default.json` (included) to `content/presets/oldsun/default.json` on the device; the browser builder writes it for you. It matches the defaults in `definition.json`.
 
 Identity: engine 1, screen page 84. Choose another free ID if your collection already uses these.
 
@@ -85,7 +88,7 @@ CPU load has not been measured on the device. Installing modified firmware is at
 | `engine.cpp`, `core.h` | The sound: the DCO, chorus and tape, 32-bit fixed point |
 | `tables.h` | Lookup tables |
 | `display.cpp`, `display.h` | The screen's animation |
-| `panel.svg.fragment` | The screen's artwork (grayscale; the colour one is in `../colour`) |
+| `panel.svg.fragment` | The screen's artwork (grayscale; the colour one is in `colour/`) |
 | `definition.json` | Controls, preview presets, memory sizes |
 | `machine.json` | Kind, identity, description |
 
