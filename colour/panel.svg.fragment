@@ -1,0 +1,73 @@
+<g id="oldsun_panel">
+  <rect x="0" y="20" width="480" height="200" fill="#000000"/>
+  <path d="M26,52 L454,52 L466,64 L466,194 L454,206 L26,206 L14,194 L14,64 Z" fill="#0E0E0E" stroke="#3A3A3A" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M30,60 L176,60 L186,68 L294,68 L304,60 L450,60 L458,68 L458,180 L450,188 L328,188 L320,180 L160,180 L152,188 L30,188 L22,180 L22,68 Z" fill="#0A0A0A" stroke="#262626" stroke-width="1" stroke-linejoin="round"/>
+  <circle cx="24" cy="62" r="3.5" fill="#1C1C1C" stroke="#5A5A5A" stroke-width="1"/>
+  <circle cx="456" cy="62" r="3.5" fill="#1C1C1C" stroke="#5A5A5A" stroke-width="1"/>
+  <circle cx="24" cy="196" r="3.5" fill="#1C1C1C" stroke="#5A5A5A" stroke-width="1"/>
+  <circle cx="456" cy="196" r="3.5" fill="#1C1C1C" stroke="#5A5A5A" stroke-width="1"/>
+  <rect x="180" y="134" width="120" height="1" fill="#2A1A10"/>
+  <rect x="172" y="140" width="136" height="1" fill="#2A1A10"/>
+  <rect x="162" y="148" width="156" height="1" fill="#2A1A10"/>
+  <rect x="150" y="158" width="180" height="1" fill="#1E1610"/>
+  <rect x="146" y="170" width="188" height="1" fill="#1E1610"/>
+  <path d="M146,132 L162,122 L172,125 L186,112 L198,119 L210,108 L222,117 L240,104 L258,116 L270,108 L284,119 L296,112 L310,124 L320,120 L334,132 Z" fill="#1E1A18" stroke="#3A2A20" stroke-width="1" stroke-linejoin="round"/>
+  <circle id="oldsun_node_13" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="30" fill="none" stroke="#FF6A1A" stroke-width="1.5"/>
+  <circle id="oldsun_node_14" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="30" fill="none" stroke="#FF6A1A" stroke-width="1.5"/>
+  <path id="oldsun_node_2" transform="matrix(1 0 0 1 640 120)" d="M-14,-24 L14,-24 L28,0 L14,24 L-14,24 L-28,0 Z" fill="#FF7A1A" stroke="#FF7A1A" stroke-width="1" stroke-linejoin="round"/>
+  <path d="M216.067,110 L263.933,110 L262.767,112 L217.233,112 Z" fill="#000000" stroke="#000000" stroke-width="0.5" stroke-linejoin="round"/>
+  <path d="M218.983,115 L261.017,115 L259.558,117.5 L220.442,117.5 Z" fill="#000000" stroke="#000000" stroke-width="0.5" stroke-linejoin="round"/>
+  <path d="M221.9,120 L258.1,120 L256.35,123 L223.65,123 Z" fill="#000000" stroke="#000000" stroke-width="0.5" stroke-linejoin="round"/>
+  <path d="M225.108,125.5 L254.892,125.5 L253.433,128 L226.567,128 Z" fill="#000000" stroke="#000000" stroke-width="0.5" stroke-linejoin="round"/>
+  <circle cx="88" cy="120" r="52" fill="#0C0C0C" stroke="#3A3A3A" stroke-width="1.5"/>
+  <circle id="oldsun_node_3" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="26" fill="#FF6A1A" stroke="#C2501A" stroke-width="1"/>
+  <circle cx="88" cy="120" r="23" fill="#E8E4DC" stroke="#E8E4DC" stroke-width="1"/>
+  <circle id="oldsun_node_4" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="5" fill="#0C0C0C" stroke="#0C0C0C" stroke-width="1"/>
+  <circle id="oldsun_node_5" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="5" fill="#0C0C0C" stroke="#0C0C0C" stroke-width="1"/>
+  <circle id="oldsun_node_6" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="5" fill="#0C0C0C" stroke="#0C0C0C" stroke-width="1"/>
+  <circle cx="88" cy="120" r="7" fill="#000000" stroke="#BFBAB0" stroke-width="1.5"/>
+  <circle cx="392" cy="120" r="52" fill="#0C0C0C" stroke="#3A3A3A" stroke-width="1.5"/>
+  <circle id="oldsun_node_7" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="26" fill="#FF6A1A" stroke="#C2501A" stroke-width="1"/>
+  <circle cx="392" cy="120" r="23" fill="#E8E4DC" stroke="#E8E4DC" stroke-width="1"/>
+  <circle id="oldsun_node_8" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="5" fill="#0C0C0C" stroke="#0C0C0C" stroke-width="1"/>
+  <circle id="oldsun_node_9" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="5" fill="#0C0C0C" stroke="#0C0C0C" stroke-width="1"/>
+  <circle id="oldsun_node_10" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="5" fill="#0C0C0C" stroke="#0C0C0C" stroke-width="1"/>
+  <circle cx="392" cy="120" r="7" fill="#000000" stroke="#BFBAB0" stroke-width="1.5"/>
+  <circle cx="40" cy="186" r="9" fill="#000000" stroke="#9A9A9A" stroke-width="2"/>
+  <circle cx="40" cy="186" r="4" fill="#1C1C1C" stroke="#6A6A6A" stroke-width="1"/>
+  <circle cx="440" cy="186" r="9" fill="#000000" stroke="#9A9A9A" stroke-width="2"/>
+  <circle cx="440" cy="186" r="4" fill="#1C1C1C" stroke="#6A6A6A" stroke-width="1"/>
+  <rect x="166" y="186" width="148" height="16" fill="#050505" stroke="#2E2E2E" stroke-width="1"/>
+  <circle cx="180" cy="194" r="4" fill="#000000" stroke="#6A6A6A" stroke-width="1.5"/>
+  <circle cx="300" cy="194" r="4" fill="#000000" stroke="#6A6A6A" stroke-width="1.5"/>
+  <circle id="oldsun_node_11" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="3.5" fill="#FF6A1A" stroke="#FF6A1A" stroke-width="1"/>
+  <circle id="oldsun_node_12" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="3.5" fill="#4A4A4A" stroke="#4A4A4A" stroke-width="1"/>
+  <circle id="oldsun_node_15" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1.5" fill="#F0EDE6" stroke="#F0EDE6" stroke-width="0.5"/>
+  <circle id="oldsun_node_16" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1.5" fill="#F0EDE6" stroke="#F0EDE6" stroke-width="0.5"/>
+  <circle id="oldsun_node_17" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1.5" fill="#F0EDE6" stroke="#F0EDE6" stroke-width="0.5"/>
+  <circle id="oldsun_node_18" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1.5" fill="#F0EDE6" stroke="#F0EDE6" stroke-width="0.5"/>
+  <circle id="oldsun_node_19" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1.5" fill="#F0EDE6" stroke="#F0EDE6" stroke-width="0.5"/>
+  <circle id="oldsun_node_20" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1.5" fill="#F0EDE6" stroke="#F0EDE6" stroke-width="0.5"/>
+  <circle id="oldsun_node_21" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1.5" fill="#F0EDE6" stroke="#F0EDE6" stroke-width="0.5"/>
+  <circle id="oldsun_node_22" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1.5" fill="#F0EDE6" stroke="#F0EDE6" stroke-width="0.5"/>
+  <circle id="oldsun_node_23" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1.5" fill="#F0EDE6" stroke="#F0EDE6" stroke-width="0.5"/>
+  <circle id="oldsun_node_24" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1.5" fill="#F0EDE6" stroke="#F0EDE6" stroke-width="0.5"/>
+  <path id="oldsun_node_1" transform="matrix(1 0 0 1 640 120)" d="M-63,0 L-61,0 L-59,0 L-57,0 L-55,0 L-53,0 L-51,0 L-49,0 L-47,0 L-45,0 L-43,0 L-41,0 L-39,0 L-37,0 L-35,0 L-33,0 L-31,0 L-29,0 L-27,0 L-25,0 L-23,0 L-21,0 L-19,0 L-17,0 L-15,0 L-13,0 L-11,0 L-9,0 L-7,0 L-5,0 L-3,0 L-1,0 L1,0 L3,0 L5,0 L7,0 L9,0 L11,0 L13,0 L15,0 L17,0 L19,0 L21,0 L23,0 L25,0 L27,0 L29,0 L31,0 L33,0 L35,0 L37,0 L39,0 L41,0 L43,0 L45,0 L47,0 L49,0 L51,0 L53,0 L55,0 L57,0 L59,0 L61,0 L63,0 Z" fill="none" stroke="#3FA9F5" stroke-width="1.5" stroke-linejoin="round"/>
+  <path id="oldsun_node_0" transform="matrix(1 0 0 1 640 120)" d="M-63,0 L-61,0 L-59,0 L-57,0 L-55,0 L-53,0 L-51,0 L-49,0 L-47,0 L-45,0 L-43,0 L-41,0 L-39,0 L-37,0 L-35,0 L-33,0 L-31,0 L-29,0 L-27,0 L-25,0 L-23,0 L-21,0 L-19,0 L-17,0 L-15,0 L-13,0 L-11,0 L-9,0 L-7,0 L-5,0 L-3,0 L-1,0 L1,0 L3,0 L5,0 L7,0 L9,0 L11,0 L13,0 L15,0 L17,0 L19,0 L21,0 L23,0 L25,0 L27,0 L29,0 L31,0 L33,0 L35,0 L37,0 L39,0 L41,0 L43,0 L45,0 L47,0 L49,0 L51,0 L53,0 L55,0 L57,0 L59,0 L61,0 L63,0 Z" fill="none" stroke="#FF6A1A" stroke-width="1.5" stroke-linejoin="round"/>
+  <circle id="oldsun_palette_0" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1" fill="#000000" stroke="#000000" stroke-width="1" stroke-linejoin="round"/>
+  <circle id="oldsun_palette_1" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1" fill="#1C1C1C" stroke="#1C1C1C" stroke-width="1" stroke-linejoin="round"/>
+  <circle id="oldsun_palette_2" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1" fill="#4A4A4A" stroke="#4A4A4A" stroke-width="1" stroke-linejoin="round"/>
+  <circle id="oldsun_palette_3" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1" fill="#F0EDE6" stroke="#F0EDE6" stroke-width="1" stroke-linejoin="round"/>
+  <circle id="oldsun_palette_4" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1" fill="#FF6A1A" stroke="#FF6A1A" stroke-width="1.5" stroke-linejoin="round"/>
+  <circle id="oldsun_palette_5" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1" fill="#3FA9F5" stroke="#3FA9F5" stroke-width="1.5" stroke-linejoin="round"/>
+  <circle id="oldsun_palette_6" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1" fill="#FFD23A" stroke="#FFD23A" stroke-width="1" stroke-linejoin="round"/>
+  <circle id="oldsun_palette_7" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1" fill="#7A3A14" stroke="#7A3A14" stroke-width="1" stroke-linejoin="round"/>
+  <circle id="oldsun_palette_8" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1" fill="#FF9A3A" stroke="#FF9A3A" stroke-width="1" stroke-linejoin="round"/>
+  <circle id="oldsun_palette_9" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1" fill="#B84E12" stroke="#B84E12" stroke-width="1.5" stroke-linejoin="round"/>
+  <circle id="oldsun_palette_10" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1" fill="#9A9A9A" stroke="#9A9A9A" stroke-width="1" stroke-linejoin="round"/>
+  <circle id="oldsun_palette_11" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1" fill="#FF7A1A" stroke="#FF7A1A" stroke-width="1" stroke-linejoin="round"/>
+  <circle id="oldsun_palette_12" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1" fill="#5A2A10" stroke="#5A2A10" stroke-width="1.5" stroke-linejoin="round"/>
+  <circle id="oldsun_palette_13" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1" fill="#24506E" stroke="#24506E" stroke-width="1.5" stroke-linejoin="round"/>
+  <circle id="oldsun_palette_14" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round"/>
+  <circle id="oldsun_palette_15" transform="matrix(1 0 0 1 640 120)" cx="0" cy="0" r="1" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round"/>
+</g>

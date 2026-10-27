@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "sdk": "1.3",
+  "kind": "synth",
+  "description": "A Juno-inspired synth through a worn cassette: chorus, wow, flutter, drift and tape wear. Boards of Canada at sunset.",
+  "identity": {
+    "engine": 1,
+    "page": 84
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "schema": 1,
+  "id": "oldsun",
+  "name": "Oldsun",
+  "press": "page",
+  "parameters": [
+    {
+      "id": "wave",
+      "label": "Wave",
+      "default": 0.44,
+      "mapping": {
+        "kind": "linear",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "display": "percent"
+    },
+    {
+      "id": "shape",
+      "label": "Shape",
+      "default": 0.2,
+      "mapping": {
+        "kind": "linear",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "display": "percent"
+    },
+    {
+      "id": "sub",
+      "label": "Sub",
+      "default": 0.3,
+      "mapping": {
+        "kind": "linear",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "display": "percent"
+    },
+    {
+      "id": "chorus",
+      "label": "Chorus",
+      "default": 0.2,
+      "mapping": {
+        "kind": "linear",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "display": "percent"
+    },
+    {
+      "id": "wow",
+      "label": "Wow",
+      "control": 0,
+      "default": 0.08,
+      "mapping": {
+        "kind": "linear",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "display": "percent"
+    },
+    {
+      "id": "flutter",
+      "label": "Flutter",
+      "control": 1,
+      "default": 0.04,
+      "mapping": {
+        "kind": "linear",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "display": "percent"
+    },
+    {
+      "id": "reverse",
+      "label": "Reverse",
+      "control": 2,
+      "default": 0.0,
+      "mapping": {
+        "kind": "linear",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "display": "percent"
+    },
+    {
+      "id": "degrade",
+      "label": "Degrade",
+      "control": 3,
+      "default": 0.1,
+      "mapping": {
+        "kind": "linear",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "display": "percent"
+    }
+  ],
+  "presets": {
+    "Init": {
+      "wave": 0.44,
+      "shape": 0.2,
+      "sub": 0.3,
+      "chorus": 0.2,
+      "wow": 0.08,
+      "flutter": 0.04,
+      "reverse": 0.0,
+      "degrade": 0.1
+    },
+    "Clean": {
+      "wave": 0.44,
+      "shape": 0.2,
+      "sub": 0.3,
+      "chorus": 0.2,
+      "wow": 0.0,
+      "flutter": 0.0,
+      "reverse": 0.0,
+      "degrade": 0.0
+    },
+    "Roygbiv": {
+      "wave": 0.6,
+      "shape": 0.7,
+      "sub": 0.25,
+      "chorus": 0.25,
+      "wow": 0.25,
+      "flutter": 0.08,
+      "reverse": 0.0,
+      "degrade": 0.3
+    },
+    "Olson": {
+      "wave": 0.71,
+      "shape": 0.8,
+      "sub": 0.2,
+      "chorus": 0.55,
+      "wow": 0.25,
+      "flutter": 0.05,
+      "reverse": 0.3,
+      "degrade": 0.45
+    },
+    "Warm tape": {
+      "wave": 0.29,
+      "shape": 0.15,
+      "sub": 0.35,
+      "chorus": 0.2,
+      "wow": 0.15,
+      "flutter": 0.12,
+      "reverse": 0.0,
+      "degrade": 0.35
+    },
+    "Seasick": {
+      "wave": 0.6,
+      "shape": 0.65,
+      "sub": 0.2,
+      "chorus": 0.3,
+      "wow": 0.7,
+      "flutter": 0.2,
+      "reverse": 0.0,
+      "degrade": 0.25
+    },
+    "Sub bass": {
+      "wave": 0.0,
+      "shape": 0.0,
+      "sub": 0.6,
+      "chorus": 0.0,
+      "wow": 0.03,
+      "flutter": 0.0,
+      "reverse": 0.0,
+      "degrade": 0.1
+    },
+    "Fat Juno": {
+      "wave": 1.0,
+      "shape": 0.62,
+      "sub": 0.25,
+      "chorus": 0.3,
+      "wow": 0.12,
+      "flutter": 0.04,
+      "reverse": 0.0,
+      "degrade": 0.15
+    },
+    "Strings": {
+      "wave": 0.95,
+      "shape": 0.75,
+      "sub": 0.15,
+      "chorus": 0.9,
+      "wow": 0.15,
+      "flutter": 0.03,
+      "reverse": 0.2,
+      "degrade": 0.15
+    },
+    "Flute": {
+      "wave": 0.06,
+      "shape": 0.3,
+      "sub": 0.1,
+      "chorus": 0.35,
+      "wow": 0.12,
+      "flutter": 0.08,
+      "reverse": 0.0,
+      "degrade": 0.2
+    },
+    "Backwards": {
+      "wave": 0.53,
+      "shape": 0.6,
+      "sub": 0.2,
+      "chorus": 0.4,
+      "wow": 0.15,
+      "flutter": 0.05,
+      "reverse": 0.85,
+      "degrade": 0.3
+    },
+    "Worn VHS": {
+      "wave": 0.5,
+      "shape": 0.4,
+      "sub": 0.3,
+      "chorus": 0.45,
+      "wow": 0.3,
+      "flutter": 0.3,
+      "reverse": 0.0,
+      "degrade": 0.8
+    }
+  },
+  "resources": {
+    "voiceBytes": 1160,
+    "voiceAlignment": 4,
+    "voiceCapacity": 32,
+    "sharedBytes": 40,
+    "outputPeakQ31": 1073741824,
+    "display": {
+      "stateBytes": 24,
+      "stateAlignment": 4,
+      "paths": 2,
+      "points": 64,
+      "nodes": 25,
+      "texts": 0,
+      "palette": 16
+    }
+  }
+}
