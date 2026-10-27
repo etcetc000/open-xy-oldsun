@@ -17,6 +17,8 @@ enum { N_WAVE, N_CHORUS, N_SUN, N_PACK_L, N_SLOT_L, N_PACK_R = 7, N_SLOT_R, N_PA
 enum { C_BLACK, C_DARK, C_GREY, C_WHITE, C_ORANGE, C_BLUE, C_YELLOW, C_DEEP, C_BRIGHT, C_MID, C_LIGHT, C_SUN,
        C_EMBER, C_NAVY };
 const i32 RL = 88, RR = 392, RY = 120, SUN_X = 240, SUN_Y = 102, TAPE_Y = 124;
+/* the three stars that always shine */
+const i32 STAR_X[3] = {164, 318, 286}, STAR_Y[3] = {78, 70, 92};
 
 inline i32 q10(i32 q31) { return q31 < 0 ? 0 : q31 >> 21; }           /* 0..1023 */
 inline i32 sin10(u32 phase) { return sine_table[phase >> 24] >> 21; }    /* -1024..1023 */
@@ -100,7 +102,7 @@ inline void display_reset(DisplayState& state)
     state.seed = 1;
 }
 
-inline void display(DisplayState& state, const opxy::draw::Input& input, Frame& frame)
+void display(DisplayState& state, const opxy::draw::Input& input, Frame& frame)
 {
     const i32 dt = input.reduced_motion ? 0 : clamp(input.elapsed, 0, 102);
     const i32 wave = q10(input.slots[0]), pwm = q10(input.slots[1]), sub = q10(input.slots[2]), chorus = q10(input.slots[3]);
@@ -168,9 +170,8 @@ inline void display(DisplayState& state, const opxy::draw::Input& input, Frame& 
     /* the sky: three stars always, twinkling; DEGRADE brings the dust, all over the window */
     for (u32 k = 0; k < 10; k++) {
         if (k < 3) {
-            static const i32 sx[3] = {164, 318, 286}, sy[3] = {78, 70, 92};
             const bool lit = (sin10(state.time * (1100000u + k * 370000u) + k * 0x50000000u) > -300);
-            place(frame, N_SPECK + k, sx[k] * unit, sy[k] * unit, unit, lit ? C_LIGHT : C_GREY, fill_and_stroke);
+            place(frame, N_SPECK + k, STAR_X[k] * unit, STAR_Y[k] * unit, unit, lit ? C_LIGHT : C_GREY, fill_and_stroke);
         } else if (m.deg > static_cast<i32>(110 * (k - 2))) {
             const u32 h = hash(state.seed * 31u + k);
             place(frame, N_SPECK + k, static_cast<i32>(146 + h % 188u) * unit, static_cast<i32>(72 + (h >> 8) % 100u) * unit,

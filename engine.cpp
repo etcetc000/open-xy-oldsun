@@ -247,8 +247,8 @@ inline void initialize(Voice& voice, Shared& shared, u32 owner)
 }
 inline void destroy(Voice&, Shared&, u32) {}
 
-inline void render(Voice& v, Shared& sh, u32, opxy::Output output, opxy::Parameters params,
-                   opxy::Pitch pitch)
+void render(Voice& v, Shared& sh, u32, opxy::Output output, opxy::Parameters params,
+            opxy::Pitch pitch)
 {
     unsigned s;
     if (!v.started) begin(v, sh);
